@@ -39,11 +39,10 @@ def find_largest_product(series, length):
 	series = remove_linebreaks(series)
 	i = 1
 	while i < len(series) - length:
-		last_num = int(series[i-1])
-		next_num = int(series[i+length])
 		new_product = compute_product(series[i:i+length])
 		if new_product > last_max_product:
 			last_max_product = new_product
+			# print(series[i:i+length])
 		i += 1
 	return last_max_product
 

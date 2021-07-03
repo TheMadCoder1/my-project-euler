@@ -1,16 +1,9 @@
-primes = [2]
-result = 2
-i = 3
-while i <= 2000000:
-    prime = True
-    for num in primes:
-        if i % num == 0:
-            prime = False
-            break
-        if num * 2 > i:
-            break
-    if prime:
-        primes.append(i)
-        result += i
-    i += 1
-print result
+MAX = 2000000
+is_prime = [True] * (MAX+1)
+total = 0
+for i in range(2, MAX+1):
+    if is_prime[i]:
+        total += i
+        for i in range(i+i, MAX+1, i):
+            is_prime[i] = False
+print(total)
